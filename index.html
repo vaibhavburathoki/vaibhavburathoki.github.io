@@ -3,1173 +3,501 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dr. Aryan Mehta — Research Scholar</title>
+  <title>Vaibhav burathoki — Research Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
     :root {
-      --navy: #0b1c35;
-      --navy-mid: #142444;
-      --navy-light: #1e3460;
-      --gold: #c9a55a;
-      --gold-light: #e2c47e;
-      --ivory: #f7f3ec;
-      --ivory-dark: #ede8df;
-      --cream: #faf7f2;
-      --slate: #8a9ab5;
-      --text-muted: #6b7d96;
-      --white: #ffffff;
-      --rule: rgba(201, 165, 90, 0.3);
+      --ink: #1a1a2e; --ink-mid: #2d2d4e; --ink-soft: #4a4a6a;
+      --accent: #e85d26; --accent-2: #f4845f;
+      --sage: #4a7c6f; --sand: #f5f0e8; --sand-dark: #ede8df;
+      --warm-white: #fafaf8; --muted: #8a8aaa; --rule: rgba(26,26,46,0.1);
     }
-
     html { scroll-behavior: smooth; }
+    body { background: var(--warm-white); color: var(--ink); font-family: 'DM Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.7; overflow-x: hidden; }
 
-    body {
-      background: var(--cream);
-      color: var(--navy);
-      font-family: 'Crimson Pro', Georgia, serif;
-      font-size: 18px;
-      line-height: 1.75;
-      overflow-x: hidden;
-    }
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(250,250,248,0.95); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); }
+    .nav-inner { max-width: 1140px; margin: 0 auto; padding: 0 2rem; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 500; color: var(--ink); text-decoration: none; }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.78rem; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta { font-size: 0.75rem; font-weight: 500; background: var(--ink); color: var(--warm-white); padding: 0.5rem 1.3rem; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--accent); }
 
-    /* ── NAVIGATION ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(11, 28, 53, 0.97);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(201, 165, 90, 0.2);
-    }
-    .nav-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2.5rem;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      font-weight: 500;
-      color: var(--gold);
-      letter-spacing: 0.04em;
-      text-decoration: none;
-    }
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-    .nav-links a {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 400;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(247, 243, 236, 0.7);
-      text-decoration: none;
-      transition: color 0.25s;
-    }
-    .nav-links a:hover { color: var(--gold-light); }
+    /* HERO */
+    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; padding-top: 60px; }
+    .hero-left { background: var(--ink); padding: 7rem 4rem 5rem 3rem; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
+    .hero-left::after { content: ''; position: absolute; bottom: 0; right: 0; width: 200px; height: 200px; border-top: 1px solid rgba(232,93,38,0.3); border-left: 1px solid rgba(232,93,38,0.3); }
+    .hero-tag { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-2); margin-bottom: 2rem; }
+    .hero-tag-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+    .hero-name { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 5vw, 5rem); font-weight: 700; color: #f5f3ef; line-height: 1.04; margin-bottom: 1.8rem; }
+    .hero-name em { font-style: italic; color: var(--accent-2); font-weight: 400; }
+    .hero-tagline { font-size: 1.05rem; font-weight: 300; color: rgba(245,243,239,0.6); line-height: 1.75; max-width: 420px; margin-bottom: 3rem; }
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 3rem; }
+    .chip { font-size: 0.7rem; font-weight: 400; letter-spacing: 0.08em; padding: 0.35rem 0.9rem; border: 1px solid rgba(245,243,239,0.15); color: rgba(245,243,239,0.65); border-radius: 100px; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-solid { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; background: var(--accent); color: #fff; padding: 0.85rem 2rem; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+    .btn-solid:hover { background: #d14e1c; transform: translateY(-1px); }
+    .btn-ghost { font-size: 0.78rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid rgba(245,243,239,0.25); color: rgba(245,243,239,0.7); padding: 0.85rem 2rem; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+    .btn-ghost:hover { border-color: rgba(245,243,239,0.6); color: #f5f3ef; }
+    .hero-right { background: var(--sand); padding: 7rem 3rem 5rem 4rem; display: flex; flex-direction: column; justify-content: center; gap: 2.5rem; }
+    .hero-stat-card { border-left: 2px solid var(--accent); padding-left: 1.4rem; }
+    .hero-stat-num { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 500; color: var(--ink); line-height: 1; }
+    .hero-stat-label { font-size: 0.78rem; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-top: 0.3rem; }
+    .hero-stat-desc { font-size: 0.9rem; color: var(--ink-soft); margin-top: 0.4rem; font-weight: 300; }
+    .hero-seeking { background: white; border: 1px solid var(--rule); padding: 1.5rem; position: relative; }
+    .hero-seeking::before { content: 'Currently Seeking'; position: absolute; top: -0.55rem; left: 1rem; background: white; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); padding: 0 0.5rem; font-weight: 500; }
+    .hero-seeking p { font-size: 0.95rem; color: var(--ink-soft); font-weight: 300; line-height: 1.7; }
+    .hero-seeking strong { color: var(--ink); font-weight: 500; }
 
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      background: var(--navy);
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -20%; right: -10%;
-      width: 600px; height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(201,165,90,0.06) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--gold), transparent);
-      opacity: 0.4;
-    }
-    /* decorative vertical lines */
-    .hero-lines {
-      position: absolute;
-      top: 0; bottom: 0;
-      right: 8%;
-      width: 1px;
-      background: linear-gradient(to bottom, transparent, rgba(201,165,90,0.15), transparent);
-    }
-    .hero-lines::before {
-      content: '';
-      position: absolute;
-      top: 0; bottom: 0;
-      left: -40px;
-      width: 1px;
-      background: linear-gradient(to bottom, transparent, rgba(201,165,90,0.08), transparent);
-    }
+    /* SECTION BASE */
+    section { padding: 6.5rem 2rem; }
+    .container { max-width: 1140px; margin: 0 auto; }
+    .section-eyebrow { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 500; color: var(--ink); line-height: 1.15; margin-bottom: 0.8rem; }
+    .section-title em { font-style: italic; color: var(--ink-soft); }
+    .section-sub { font-size: 1rem; color: var(--muted); font-weight: 300; max-width: 520px; margin-bottom: 3.5rem; line-height: 1.8; }
 
-    .hero-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 8rem 2.5rem 6rem;
-      display: grid;
-      grid-template-columns: 1fr 360px;
-      gap: 5rem;
-      align-items: center;
-      width: 100%;
-      position: relative;
-      z-index: 1;
-    }
-    .hero-eyebrow {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.68rem;
-      font-weight: 400;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    .hero-eyebrow::before {
-      content: '';
-      display: inline-block;
-      width: 32px;
-      height: 1px;
-      background: var(--gold);
-    }
-    .hero-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3rem, 6vw, 5.5rem);
-      font-weight: 300;
-      color: var(--ivory);
-      line-height: 1.06;
-      letter-spacing: -0.01em;
-      margin-bottom: 1.2rem;
-    }
-    .hero-name em {
-      font-style: italic;
-      color: var(--gold-light);
-    }
-    .hero-title {
-      font-family: 'Crimson Pro', serif;
-      font-size: 1.2rem;
-      font-weight: 300;
-      color: var(--slate);
-      margin-bottom: 0.4rem;
-      letter-spacing: 0.02em;
-    }
-    .hero-affil {
-      font-family: 'Crimson Pro', serif;
-      font-size: 1rem;
-      color: rgba(138, 154, 181, 0.7);
-      margin-bottom: 2.8rem;
-    }
-    .hero-bio {
-      font-size: 1.1rem;
-      font-weight: 300;
-      color: rgba(247, 243, 236, 0.6);
-      max-width: 520px;
-      line-height: 1.8;
-      margin-bottom: 3rem;
-    }
-    .hero-actions {
-      display: flex;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-    }
-    .btn-primary {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      background: var(--gold);
-      color: var(--navy);
-      padding: 0.85rem 2.2rem;
-      text-decoration: none;
-      font-weight: 500;
-      transition: background 0.25s, transform 0.2s;
-      display: inline-block;
-    }
-    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
-    .btn-outline {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      border: 1px solid rgba(201,165,90,0.5);
-      color: var(--gold);
-      padding: 0.85rem 2.2rem;
-      text-decoration: none;
-      font-weight: 400;
-      transition: border-color 0.25s, color 0.25s, background 0.25s;
-      display: inline-block;
-    }
-    .btn-outline:hover {
-      border-color: var(--gold);
-      color: var(--ivory);
-      background: rgba(201,165,90,0.08);
-    }
+    /* ABOUT */
+    #about { background: var(--warm-white); }
+    .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 6rem; align-items: start; }
+    .about-body p { font-size: 1.02rem; color: var(--ink-soft); font-weight: 300; line-height: 1.85; margin-bottom: 1.4rem; }
+    .about-body p strong { color: var(--ink); font-weight: 500; }
+    .about-pull { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-style: italic; color: var(--ink-mid); line-height: 1.4; border-left: 3px solid var(--accent); padding-left: 1.5rem; margin: 2.5rem 0; }
+    .edu-card { background: var(--sand); padding: 1.8rem; margin-bottom: 1px; border-left: 3px solid transparent; transition: border-color 0.2s, background 0.2s; }
+    .edu-card:hover { border-left-color: var(--accent); background: var(--sand-dark); }
+    .edu-degree { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 500; color: var(--ink); margin-bottom: 0.25rem; }
+    .edu-inst { font-size: 0.88rem; color: var(--ink-soft); margin-bottom: 0.2rem; }
+    .edu-meta { font-size: 0.75rem; letter-spacing: 0.06em; color: var(--muted); display: flex; gap: 1rem; margin-top: 0.5rem; }
+    .edu-gpa { color: var(--accent); font-weight: 500; }
+    .skills-wrap { margin-top: 2rem; }
+    .skills-label { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.8rem; font-weight: 500; }
+    .skill-row { margin-bottom: 0.9rem; }
+    .skill-name-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.3rem; }
+    .skill-name { font-size: 0.88rem; color: var(--ink-soft); }
+    .skill-pct { font-size: 0.78rem; color: var(--muted); }
+    .skill-bar { height: 3px; background: rgba(26,26,46,0.08); border-radius: 2px; overflow: hidden; }
+    .skill-fill { height: 100%; background: var(--accent); border-radius: 2px; }
 
-    /* photo card */
-    .hero-photo-wrap {
-      position: relative;
-    }
-    .hero-photo-frame {
-      position: relative;
-    }
-    .hero-photo-frame::before {
-      content: '';
-      position: absolute;
-      top: -14px; left: -14px; right: 14px; bottom: 14px;
-      border: 1px solid rgba(201,165,90,0.3);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .hero-photo {
-      width: 100%;
-      aspect-ratio: 3/4;
-      object-fit: cover;
-      display: block;
-      position: relative;
-      z-index: 1;
-      filter: grayscale(20%) contrast(1.05);
-      background: var(--navy-mid);
-    }
-    /* placeholder avatar */
-    .hero-photo-placeholder {
-      width: 100%;
-      aspect-ratio: 3/4;
-      background: linear-gradient(160deg, var(--navy-light) 0%, var(--navy-mid) 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      z-index: 1;
-    }
-    .hero-photo-placeholder svg {
-      width: 80px;
-      opacity: 0.25;
-      fill: var(--ivory);
-    }
-    .hero-stat-row {
-      display: flex;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .hero-stat { text-align: center; }
-    .hero-stat-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      font-weight: 500;
-      color: var(--gold);
-      line-height: 1;
-    }
-    .hero-stat-label {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.62rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--slate);
-      margin-top: 0.3rem;
-    }
+    /* PROJECTS */
+    #projects { background: var(--sand); }
+    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5px; background: rgba(26,26,46,0.06); border: 1px solid rgba(26,26,46,0.06); }
+    .project-card { background: var(--sand); padding: 2.8rem 2.5rem; position: relative; overflow: hidden; transition: background 0.25s; display: flex; flex-direction: column; }
+    .project-card:hover { background: #ede8dc; }
+    .project-card::after { content: attr(data-num); position: absolute; right: 2rem; bottom: 1.5rem; font-family: 'Playfair Display', serif; font-size: 5rem; font-weight: 700; color: rgba(26,26,46,0.04); line-height: 1; pointer-events: none; }
+    .project-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .project-tag { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.7rem; border-radius: 2px; }
+    .tag-nlp { background: rgba(74,124,111,0.1); color: #2d6558; }
+    .tag-ml { background: rgba(232,93,38,0.1); color: #b84015; }
+    .tag-hci { background: rgba(45,45,78,0.08); color: var(--ink-mid); }
+    .tag-social { background: rgba(130,80,180,0.1); color: #6632a0; }
+    .tag-data { background: rgba(180,140,60,0.1); color: #7a5e10; }
+    .project-title { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 500; color: var(--ink); line-height: 1.25; margin-bottom: 0.8rem; }
+    .project-desc { font-size: 0.95rem; color: var(--ink-soft); font-weight: 300; line-height: 1.75; margin-bottom: 1.8rem; flex: 1; }
+    .project-footer { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(26,26,46,0.08); padding-top: 1.2rem; margin-top: auto; }
+    .project-result { font-size: 0.82rem; color: var(--sage); font-weight: 500; }
+    .project-links { display: flex; gap: 1rem; }
+    .project-link { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; transition: color 0.2s; }
+    .project-link:hover { color: var(--accent); }
+    .project-card.featured { grid-column: 1 / -1; flex-direction: row; gap: 4rem; align-items: center; padding: 3.5rem; }
+    .project-card.featured .project-body { flex: 1; }
+    .project-card.featured .project-visual { flex: 0 0 260px; aspect-ratio: 4/3; background: var(--ink); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .project-card.featured .project-visual::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(232,93,38,0.06) 10px, rgba(232,93,38,0.06) 11px); }
+    .project-visual-label { font-size: 0.75rem; letter-spacing: 0.08em; color: rgba(245,243,239,0.3); z-index: 1; text-align: center; padding: 1rem; }
 
-    /* ── SECTION BASICS ── */
-    section { padding: 7rem 2.5rem; }
-    .container { max-width: 1100px; margin: 0 auto; }
+    /* IDEAS */
+    #ideas { background: var(--ink); position: relative; overflow: hidden; }
+    #ideas::before { content: '"'; font-family: 'Playfair Display', serif; font-size: 30rem; font-weight: 700; font-style: italic; position: absolute; top: -4rem; left: -2rem; color: rgba(255,255,255,0.02); line-height: 1; pointer-events: none; user-select: none; }
+    #ideas .section-title { color: #f5f3ef; }
+    #ideas .section-title em { color: var(--accent-2); }
+    #ideas .section-sub { color: rgba(245,243,239,0.45); }
+    .ideas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.05); }
+    .idea-card { background: rgba(255,255,255,0.02); padding: 2.5rem 2rem; border: 1px solid rgba(255,255,255,0.04); transition: background 0.25s, border-color 0.25s; }
+    .idea-card:hover { background: rgba(232,93,38,0.06); border-color: rgba(232,93,38,0.2); }
+    .idea-number { font-size: 0.78rem; font-weight: 400; color: var(--accent); margin-bottom: 1.2rem; letter-spacing: 0.06em; }
+    .idea-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 500; color: #f0ede8; margin-bottom: 0.8rem; line-height: 1.3; }
+    .idea-desc { font-size: 0.9rem; color: rgba(245,243,239,0.45); font-weight: 300; line-height: 1.75; }
+    .idea-why { margin-top: 1.2rem; font-size: 0.8rem; color: var(--accent-2); font-weight: 400; font-style: italic; }
 
-    .section-label {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.65rem;
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    .section-label::after {
-      content: '';
-      flex: 1;
-      max-width: 40px;
-      height: 1px;
-      background: var(--gold);
-      opacity: 0.5;
-    }
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.2rem, 4vw, 3.5rem);
-      font-weight: 300;
-      color: var(--navy);
-      line-height: 1.12;
-      margin-bottom: 1rem;
-      letter-spacing: -0.01em;
-    }
-    .section-title em { font-style: italic; color: var(--navy-light); }
-    .section-rule {
-      width: 48px;
-      height: 2px;
-      background: linear-gradient(to right, var(--gold), transparent);
-      margin-bottom: 3rem;
-    }
+    /* EXPERIENCE */
+    #experience { background: var(--warm-white); }
+    .timeline { position: relative; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: var(--rule); }
+    .timeline-item { padding-left: 2.5rem; padding-bottom: 3rem; position: relative; }
+    .timeline-item::before { content: ''; position: absolute; left: -4px; top: 0.45rem; width: 9px; height: 9px; border-radius: 50%; background: var(--warm-white); border: 2px solid var(--accent); }
+    .timeline-period { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
+    .timeline-role { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 500; color: var(--ink); margin-bottom: 0.2rem; }
+    .timeline-org { font-size: 0.9rem; color: var(--ink-soft); margin-bottom: 0.8rem; font-weight: 300; }
+    .timeline-body { font-size: 0.95rem; color: var(--ink-soft); font-weight: 300; line-height: 1.8; max-width: 620px; }
+    .timeline-body li { margin-bottom: 0.4rem; list-style: none; padding-left: 1.2rem; position: relative; }
+    .timeline-body li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.8rem; }
 
-    /* ── ABOUT ── */
-    #about { background: var(--cream); }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 6rem;
-      align-items: start;
-    }
-    .about-sidebar {}
-    .about-photo-wrap { position: relative; margin-bottom: 2.5rem; }
-    .about-photo {
-      width: 100%;
-      aspect-ratio: 4/5;
-      background: linear-gradient(140deg, #d6dde9 0%, #b8c4d6 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .about-photo svg { width: 60px; opacity: 0.3; fill: var(--navy); }
-    .about-photo-accent {
-      position: absolute;
-      bottom: -10px; right: -10px;
-      width: 80px; height: 80px;
-      background: var(--gold);
-      opacity: 0.12;
-      z-index: 0;
-    }
-    .about-detail {
-      border-top: 1px solid var(--rule);
-      padding: 1rem 0;
-    }
-    .about-detail-label {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.62rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.2rem;
-    }
-    .about-detail-val {
-      font-size: 1rem;
-      color: var(--navy);
-      font-weight: 400;
-    }
-    .about-body p {
-      font-size: 1.1rem;
-      color: #3a4d62;
-      line-height: 1.85;
-      margin-bottom: 1.4rem;
-      font-weight: 300;
-    }
-    .interests-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 2rem;
-    }
-    .interest-tag {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.67rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--navy-light);
-      border: 1px solid rgba(30, 52, 96, 0.25);
-      padding: 0.4rem 1rem;
-      background: transparent;
-      transition: all 0.2s;
-    }
-    .interest-tag:hover {
-      background: var(--navy);
-      color: var(--gold-light);
-      border-color: var(--navy);
-    }
+    /* CONTACT */
+    #contact { background: var(--sand); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; }
+    .contact-left p { font-size: 1rem; color: var(--ink-soft); font-weight: 300; line-height: 1.85; margin-bottom: 2rem; }
+    .contact-links { display: flex; flex-direction: column; }
+    .contact-link-row { display: flex; align-items: center; gap: 1.2rem; padding: 1.1rem 0; border-bottom: 1px solid var(--rule); text-decoration: none; transition: padding-left 0.2s; }
+    .contact-link-row:first-child { border-top: 1px solid var(--rule); }
+    .contact-link-row:hover { padding-left: 0.5rem; }
+    .contact-link-icon { width: 36px; height: 36px; border: 1px solid rgba(26,26,46,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-link-icon svg { width: 15px; height: 15px; }
+    .contact-link-label { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 0.1rem; }
+    .contact-link-val { font-size: 0.95rem; color: var(--ink); }
+    .sop-card { background: var(--ink); padding: 2.5rem; position: relative; overflow: hidden; }
+    .sop-card::after { content: ''; position: absolute; bottom: 0; right: 0; width: 100px; height: 100px; border-top: 1px solid rgba(232,93,38,0.25); border-left: 1px solid rgba(232,93,38,0.25); }
+    .sop-label { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; font-weight: 500; }
+    .sop-text { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-style: italic; color: rgba(245,243,239,0.75); line-height: 1.75; margin-bottom: 2rem; }
+    .sop-text strong { color: #f5f3ef; font-style: normal; }
+    .sop-cta { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-2); text-decoration: none; transition: gap 0.2s; }
+    .sop-cta:hover { gap: 1rem; }
+    .target-unis { margin-top: 2rem; display: flex; flex-direction: column; }
+    .target-uni { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 0.9rem; }
+    .target-uni-name { color: rgba(245,243,239,0.65); font-weight: 300; }
+    .target-uni-dept { font-size: 0.75rem; color: rgba(245,243,239,0.3); }
 
-    /* ── RESEARCH ── */
-    #research { background: var(--ivory); }
-    .research-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5px;
-      background: rgba(30,52,96,0.08);
-      border: 1px solid rgba(30,52,96,0.08);
-    }
-    .research-card {
-      background: var(--ivory);
-      padding: 2.8rem 2.2rem;
-      transition: background 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-    .research-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--gold);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.35s ease;
-    }
-    .research-card:hover::before { transform: scaleX(1); }
-    .research-card:hover { background: #f0ebe2; }
-    .research-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3.5rem;
-      font-weight: 300;
-      color: rgba(201,165,90,0.18);
-      line-height: 1;
-      margin-bottom: 1.2rem;
-      letter-spacing: -0.02em;
-    }
-    .research-card h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.45rem;
-      font-weight: 500;
-      color: var(--navy);
-      margin-bottom: 0.8rem;
-      line-height: 1.25;
-    }
-    .research-card p {
-      font-size: 0.98rem;
-      color: var(--text-muted);
-      line-height: 1.75;
-      font-weight: 300;
-    }
+    /* FOOTER */
+    footer { background: #0f0f1f; padding: 2.5rem 2rem; border-top: 1px solid rgba(232,93,38,0.12); }
+    .footer-inner { max-width: 1140px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-brand { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 500; color: rgba(245,243,239,0.5); }
+    .footer-brand span { color: var(--accent); }
+    .footer-note { font-size: 0.72rem; color: rgba(245,243,239,0.2); letter-spacing: 0.06em; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,243,239,0.3); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--accent-2); }
 
-    /* ── PUBLICATIONS ── */
-    #publications { background: var(--cream); }
-    .pub-filters {
-      display: flex;
-      gap: 0.6rem;
-      margin-bottom: 3rem;
-      flex-wrap: wrap;
-    }
-    .filter-btn {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.67rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.45rem 1.2rem;
-      border: 1px solid rgba(30,52,96,0.2);
-      background: transparent;
-      color: var(--text-muted);
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .filter-btn.active, .filter-btn:hover {
-      background: var(--navy);
-      color: var(--gold-light);
-      border-color: var(--navy);
-    }
-    .pub-list { display: flex; flex-direction: column; }
-    .pub-item {
-      border-top: 1px solid var(--rule);
-      padding: 2rem 0;
-      display: grid;
-      grid-template-columns: 60px 1fr auto;
-      gap: 1.5rem;
-      align-items: start;
-      transition: all 0.2s;
-    }
-    .pub-item:last-child { border-bottom: 1px solid var(--rule); }
-    .pub-year {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 400;
-      color: var(--gold);
-      letter-spacing: 0.06em;
-      padding-top: 0.2rem;
-    }
-    .pub-body {}
-    .pub-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem;
-      font-weight: 500;
-      color: var(--navy);
-      margin-bottom: 0.3rem;
-      line-height: 1.3;
-    }
-    .pub-authors {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      font-style: italic;
-      margin-bottom: 0.25rem;
-    }
-    .pub-journal {
-      font-size: 0.88rem;
-      color: var(--navy-light);
-      font-weight: 400;
-    }
-    .pub-badge {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.6rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.3rem 0.8rem;
-      background: rgba(201,165,90,0.12);
-      color: #8b6c2a;
-      border: 1px solid rgba(201,165,90,0.35);
-      white-space: nowrap;
-      align-self: start;
-      margin-top: 0.2rem;
-    }
-    .pub-badge.conf { background: rgba(30,52,96,0.06); color: var(--navy-light); border-color: rgba(30,52,96,0.2); }
-
-    /* ── AWARDS ── */
-    #awards { background: var(--navy); overflow: hidden; position: relative; }
-    #awards::before {
-      content: '';
-      position: absolute;
-      top: -100px; right: -100px;
-      width: 500px; height: 500px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(201,165,90,0.05) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    #awards .section-title { color: var(--ivory); }
-    #awards .section-title em { color: var(--gold-light); }
-    .awards-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5px;
-      background: rgba(255,255,255,0.04);
-    }
-    .award-card {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(201,165,90,0.1);
-      padding: 2.5rem;
-      transition: background 0.3s, border-color 0.3s;
-    }
-    .award-card:hover {
-      background: rgba(201,165,90,0.05);
-      border-color: rgba(201,165,90,0.25);
-    }
-    .award-icon {
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-      opacity: 0.7;
-    }
-    .award-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.35rem;
-      font-weight: 500;
-      color: var(--ivory);
-      margin-bottom: 0.4rem;
-      line-height: 1.2;
-    }
-    .award-org {
-      font-size: 0.92rem;
-      color: var(--gold);
-      font-style: italic;
-      margin-bottom: 0.3rem;
-    }
-    .award-year {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.68rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--slate);
-    }
-
-    /* ── CONTACT ── */
-    #contact { background: var(--ivory-dark); }
-    .contact-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: start;
-    }
-    .contact-info {}
-    .contact-info p {
-      font-size: 1.05rem;
-      color: #4a5d75;
-      font-weight: 300;
-      line-height: 1.8;
-      margin-bottom: 2.5rem;
-    }
-    .contact-row {
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-      padding: 1.1rem 0;
-      border-bottom: 1px solid rgba(30,52,96,0.1);
-      text-decoration: none;
-      transition: gap 0.2s;
-    }
-    .contact-row:hover { gap: 1.5rem; }
-    .contact-row:first-of-type { border-top: 1px solid rgba(30,52,96,0.1); }
-    .contact-row-icon {
-      width: 38px; height: 38px;
-      border: 1px solid rgba(201,165,90,0.35);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .contact-row-icon svg { width: 16px; height: 16px; }
-    .contact-row-label {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.1rem;
-    }
-    .contact-row-val {
-      font-size: 0.98rem;
-      color: var(--navy);
-      font-weight: 400;
-    }
-
-    /* contact form */
-    .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
-    .form-field { display: flex; flex-direction: column; gap: 0.4rem; }
-    .form-label {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.63rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-    .form-input, .form-textarea {
-      font-family: 'Crimson Pro', serif;
-      font-size: 1rem;
-      padding: 0.8rem 1rem;
-      border: 1px solid rgba(30,52,96,0.2);
-      background: rgba(255,255,255,0.7);
-      color: var(--navy);
-      outline: none;
-      transition: border-color 0.2s, background 0.2s;
-      width: 100%;
-    }
-    .form-input:focus, .form-textarea:focus {
-      border-color: var(--gold);
-      background: white;
-    }
-    .form-textarea { min-height: 130px; resize: vertical; }
-    .form-submit {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      background: var(--navy);
-      color: var(--gold-light);
-      border: none;
-      padding: 1rem 2rem;
-      cursor: pointer;
-      font-weight: 500;
-      transition: background 0.25s;
-      align-self: flex-start;
-    }
-    .form-submit:hover { background: var(--navy-light); }
-
-    /* ── FOOTER ── */
-    footer {
-      background: #080f1d;
-      padding: 3rem 2.5rem;
-      border-top: 1px solid rgba(201,165,90,0.15);
-    }
-    .footer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
-    .footer-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
-      font-weight: 500;
-      color: var(--gold);
-      letter-spacing: 0.04em;
-    }
-    .footer-note {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
-      color: rgba(138,154,181,0.5);
-      text-align: center;
-    }
-    .footer-socials { display: flex; gap: 1.2rem; }
-    .footer-social-link {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.63rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(138,154,181,0.6);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .footer-social-link:hover { color: var(--gold); }
-
-    /* ── SCROLL ANIMATIONS ── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.32s; }
 
-    /* ── RESPONSIVE ── */
+    /* RESPONSIVE */
     @media (max-width: 900px) {
-      .hero-content { grid-template-columns: 1fr; gap: 3rem; }
-      .hero-photo-wrap { order: -1; max-width: 280px; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-left { padding: 5rem 2rem 3rem; }
+      .hero-right { padding: 3rem 2rem; }
       .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .research-grid { grid-template-columns: 1fr; }
-      .awards-grid { grid-template-columns: 1fr; }
-      .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
-      .pub-item { grid-template-columns: 50px 1fr; }
-      .pub-badge { grid-column: 2; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .project-card.featured { flex-direction: column; gap: 2rem; }
+      .project-card.featured .project-visual { flex: none; width: 100%; }
+      .ideas-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
       section { padding: 5rem 1.5rem; }
-    }
-    @media (max-width: 600px) {
-      .nav-links { gap: 1.2rem; }
-      .hero-name { font-size: 2.8rem; }
-      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .nav-links { display: none; }
     }
   </style>
 </head>
 <body>
 
-<!-- ══ NAVIGATION ══ -->
+<!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="#" class="nav-logo">Dr. Aryan Mehta</a>
+    <a href="#" class="nav-logo">Kavya<span>.</span>Nair</a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#publications">Publications</a></li>
-      <li><a href="#awards">Honours</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#ideas">Research Ideas</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <a href="resume.pdf" class="nav-cta" download>Resume ↓</a>
   </div>
 </nav>
 
-<!-- ══ HERO ══ -->
-<section class="hero">
-  <div class="hero-lines"></div>
-  <div class="hero-content">
-    <div class="hero-text">
-      <div class="hero-eyebrow">Research Scholar &amp; Academician</div>
-      <h1 class="hero-name">Dr. <em>Aryan</em><br>Mehta</h1>
-      <p class="hero-title">Associate Professor · Department of Computer Science</p>
-      <p class="hero-affil">Indian Institute of Technology Delhi — New Delhi, India</p>
-      <p class="hero-bio">
-        Investigating the intersection of machine learning, causal inference, and biomedical informatics.
-        Committed to producing rigorous, reproducible science that advances human understanding.
-      </p>
-      <div class="hero-actions">
-        <a href="#publications" class="btn-primary">View Publications</a>
-        <a href="cv.pdf" class="btn-outline" download>Download CV</a>
-      </div>
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-tag"><span class="hero-tag-dot"></span>PhD Applicant · Fall 2026</div>
+    <h1 class="hero-name">Kavya<br><em>Nair</em></h1>
+    <p class="hero-tagline">A curious mind at the intersection of machine learning and human-computer interaction — building systems that are not just intelligent, but genuinely useful.</p>
+    <div class="hero-chips">
+      <span class="chip">NLP · LLMs</span>
+      <span class="chip">HCI</span>
+      <span class="chip">Fairness in AI</span>
+      <span class="chip">Cognitive Science</span>
     </div>
-
-    <div class="hero-photo-wrap">
-      <div class="hero-photo-frame">
-        <!-- Replace the div below with: <img src="photo.jpg" alt="Dr. Aryan Mehta" class="hero-photo" /> -->
-        <div class="hero-photo-placeholder">
-          <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="40" cy="28" r="16"/>
-            <path d="M4 72c0-19.88 16.12-36 36-36s36 16.12 36 36"/>
-          </svg>
-        </div>
-      </div>
-      <div class="hero-stat-row">
-        <div class="hero-stat">
-          <div class="hero-stat-num">47</div>
-          <div class="hero-stat-label">Publications</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num">2,180</div>
-          <div class="hero-stat-label">Citations</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num">12</div>
-          <div class="hero-stat-label">Years Active</div>
-        </div>
-      </div>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-solid">View My Work</a>
+      <a href="#ideas" class="btn-ghost">Research Ideas</a>
     </div>
   </div>
-</section>
+  <div class="hero-right">
+    <div class="hero-stat-card">
+      <div class="hero-stat-num">6</div>
+      <div class="hero-stat-label">Research Projects</div>
+      <div class="hero-stat-desc">Across NLP, HCI, and computational social science</div>
+    </div>
+    <div class="hero-stat-card">
+      <div class="hero-stat-num">2</div>
+      <div class="hero-stat-label">Workshop Papers</div>
+      <div class="hero-stat-desc">ACL SRW 2024 &amp; CSCW 2024 Doctoral Colloquium</div>
+    </div>
+    <div class="hero-stat-card">
+      <div class="hero-stat-num">9.1</div>
+      <div class="hero-stat-label">CGPA / 10</div>
+      <div class="hero-stat-desc">B.Tech Computer Science, NIT Trichy</div>
+    </div>
+    <div class="hero-seeking">
+      <p>Seeking <strong>PhD positions</strong> in CS / HCI / AI labs focused on <strong>human-centred NLP</strong> and <strong>AI systems that augment human reasoning</strong>. Open to fully funded opportunities globally.</p>
+    </div>
+  </div>
+</div>
 
-<!-- ══ ABOUT ══ -->
+<!-- ABOUT -->
 <section id="about">
   <div class="container">
     <div class="about-grid">
-      <div class="about-sidebar reveal">
-        <div class="about-photo-wrap">
-          <div class="about-photo">
-            <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="40" cy="28" r="16"/>
-              <path d="M4 72c0-19.88 16.12-36 36-36s36 16.12 36 36"/>
-            </svg>
-          </div>
-          <div class="about-photo-accent"></div>
-        </div>
-
-        <div class="about-detail">
-          <div class="about-detail-label">Position</div>
-          <div class="about-detail-val">Associate Professor</div>
-        </div>
-        <div class="about-detail">
-          <div class="about-detail-label">Institution</div>
-          <div class="about-detail-val">IIT Delhi</div>
-        </div>
-        <div class="about-detail">
-          <div class="about-detail-label">Ph.D.</div>
-          <div class="about-detail-val">MIT, 2014</div>
-        </div>
-        <div class="about-detail">
-          <div class="about-detail-label">Google Scholar H-Index</div>
-          <div class="about-detail-val">28</div>
-        </div>
-      </div>
-
       <div class="about-body">
-        <div class="section-label reveal">About Me</div>
-        <h2 class="section-title reveal reveal-delay-1">Scholar, <em>Educator</em>,<br>Researcher</h2>
-        <div class="section-rule reveal reveal-delay-2"></div>
-
-        <p class="reveal reveal-delay-2">
-          I am an Associate Professor in the Department of Computer Science &amp; Engineering at IIT Delhi,
-          where I lead the Computational Intelligence &amp; Health Informatics (CIHI) Lab. My work sits at
-          the frontier of machine learning theory and its applications to real-world scientific problems.
-        </p>
-        <p class="reveal reveal-delay-3">
-          Before joining IIT Delhi, I was a Postdoctoral Fellow at the Broad Institute of MIT and Harvard,
-          working on statistical methods for single-cell genomics. I completed my Ph.D. in Computer Science
-          at the Massachusetts Institute of Technology under Professor Jane Doe, where my dissertation
-          received the George M. Sprowls Award.
-        </p>
-        <p class="reveal">
-          My research has been funded by the DST, DBT, Wellcome Trust, and the Bill &amp; Melinda Gates
-          Foundation. I serve on the programme committees of NeurIPS, ICML, and ICLR, and am an Associate
-          Editor of the <em>Journal of Machine Learning Research</em>.
-        </p>
-
-        <div class="interests-grid reveal">
-          <span class="interest-tag">Machine Learning</span>
-          <span class="interest-tag">Causal Inference</span>
-          <span class="interest-tag">Biomedical Informatics</span>
-          <span class="interest-tag">Bayesian Methods</span>
-          <span class="interest-tag">Genomics</span>
-          <span class="interest-tag">Fairness in AI</span>
-          <span class="interest-tag">Graph Neural Networks</span>
+        <div class="section-eyebrow reveal">About Me</div>
+        <h2 class="section-title reveal reveal-delay-1">Driven by <em>Questions</em>,<br>Not Just Answers</h2>
+        <p class="reveal reveal-delay-2">I am a final-year Computer Science student at NIT Trichy, where I have spent four years obsessively asking one question: <strong>how do we build AI that genuinely understands the humans it serves?</strong> That question has pulled me across machine learning, linguistics, cognitive science, and design.</p>
+        <div class="about-pull reveal reveal-delay-2">"The most exciting research problems live where disciplines don't expect each other."</div>
+        <p class="reveal reveal-delay-3">My undergraduate thesis, advised by Prof. Ramesh Iyer, investigates how large language models propagate cultural biases when deployed across South Asian linguistic contexts — a problem that is both technically rich and deeply consequential.</p>
+        <p class="reveal">Beyond the lab, I have interned at Microsoft Research India and the AI4Bharat initiative, building low-resource NLP tools for underrepresented Indian languages. I believe the most important AI research is the kind that works for people who are usually left out of the dataset.</p>
+      </div>
+      <div class="about-sidebar">
+        <div class="section-eyebrow reveal">Education</div>
+        <div class="edu-card reveal reveal-delay-1">
+          <div class="edu-degree">B.Tech, Computer Science &amp; Engineering</div>
+          <div class="edu-inst">National Institute of Technology, Trichy</div>
+          <div class="edu-meta"><span>2021 – 2025</span><span class="edu-gpa">CGPA: 9.1 / 10</span></div>
+        </div>
+        <div class="edu-card reveal reveal-delay-2">
+          <div class="edu-degree">Minor in Cognitive Science</div>
+          <div class="edu-inst">NIT Trichy (Cross-departmental)</div>
+          <div class="edu-meta"><span>2022 – 2025</span></div>
+        </div>
+        <div class="edu-card reveal reveal-delay-3">
+          <div class="edu-degree">Visiting Student</div>
+          <div class="edu-inst">Indian Institute of Science, Bangalore</div>
+          <div class="edu-meta"><span>Summer 2023</span></div>
+        </div>
+        <div class="skills-wrap reveal">
+          <div class="skills-label">Technical Proficiency</div>
+          <div class="skill-row">
+            <div class="skill-name-row"><span class="skill-name">Python / PyTorch</span><span class="skill-pct">Advanced</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name-row"><span class="skill-name">NLP / Transformers</span><span class="skill-pct">Advanced</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name-row"><span class="skill-name">User Studies / HCI</span><span class="skill-pct">Intermediate</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name-row"><span class="skill-name">Statistical Analysis (R)</span><span class="skill-pct">Intermediate</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ RESEARCH ══ -->
-<section id="research">
+<!-- PROJECTS -->
+<section id="projects">
   <div class="container">
-    <div class="section-label reveal">Research</div>
-    <h2 class="section-title reveal reveal-delay-1">Areas of <em>Inquiry</em></h2>
-    <div class="section-rule reveal reveal-delay-2"></div>
+    <div class="section-eyebrow reveal">Portfolio</div>
+    <h2 class="section-title reveal reveal-delay-1">Selected <em>Projects</em></h2>
+    <p class="section-sub reveal reveal-delay-2">Work that spans research prototypes, published experiments, and independent investigations. Each project represents a genuine question I was compelled to answer.</p>
 
-    <div class="research-grid">
-      <div class="research-card reveal">
-        <div class="research-num">01</div>
-        <h3>Causal Machine Learning</h3>
-        <p>Developing principled frameworks that move beyond correlation to understand cause-and-effect relationships in high-dimensional observational data, with applications to treatment effect estimation and policy evaluation.</p>
+    <div class="projects-grid">
+      <div class="project-card featured reveal" data-num="01">
+        <div class="project-body">
+          <div class="project-tags"><span class="project-tag tag-nlp">NLP</span><span class="project-tag tag-ml">Fairness</span></div>
+          <div class="project-title">CulturalLens: Measuring Cultural Bias in Multilingual LLMs</div>
+          <p class="project-desc">Undergraduate thesis project. Designed a benchmark of 4,200 culturally-grounded prompts across 6 South Asian languages to surface how GPT-4 and LLaMA-2 systematically favour Western-centric worldviews in value-laden tasks. Identified a 23% disparity in alignment scores between high- and low-resource language variants of the same concept.</p>
+          <div class="project-footer">
+            <span class="project-result">✓ Under review — ACL 2025</span>
+            <div class="project-links">
+              <a href="#" class="project-link">GitHub →</a>
+              <a href="#" class="project-link">Paper →</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-visual"><div class="project-visual-label">Benchmark Visualisation<br>Coming Soon</div></div>
       </div>
-      <div class="research-card reveal reveal-delay-1">
-        <div class="research-num">02</div>
-        <h3>Biomedical Informatics</h3>
-        <p>Applying machine learning to accelerate biomedical discovery — including single-cell RNA sequencing analysis, drug-drug interaction prediction, and clinical outcome modelling from electronic health records.</p>
+
+      <div class="project-card reveal" data-num="02">
+        <div class="project-tags"><span class="project-tag tag-nlp">NLP</span><span class="project-tag tag-data">Low-resource</span></div>
+        <div class="project-title">Named Entity Recognition for Code-Mixed Dravidian Text</div>
+        <p class="project-desc">Built a token-level NER system for Tamil–English code-mixed social media text, handling transliteration, script switching, and informal grammar. Fine-tuned MuRIL and IndicBERT; achieved state-of-the-art F1 on the DravidianLangTech shared task dataset.</p>
+        <div class="project-footer">
+          <span class="project-result">✓ F1 Score: 81.4%</span>
+          <div class="project-links"><a href="#" class="project-link">GitHub →</a><a href="#" class="project-link">Demo →</a></div>
+        </div>
       </div>
-      <div class="research-card reveal reveal-delay-2">
-        <div class="research-num">03</div>
-        <h3>Algorithmic Fairness</h3>
-        <p>Investigating how machine learning systems encode and perpetuate societal biases, and designing algorithms with provable fairness guarantees across diverse demographic groups.</p>
+
+      <div class="project-card reveal reveal-delay-1" data-num="03">
+        <div class="project-tags"><span class="project-tag tag-hci">HCI</span><span class="project-tag tag-ml">Cognitive</span></div>
+        <div class="project-title">AI Writing Assistants and Cognitive Offloading — a User Study</div>
+        <p class="project-desc">Conducted a 48-participant mixed-methods study examining whether reliance on LLM-based writing assistants diminishes argumentative reasoning skills over time. Presented at the CSCW 2024 Doctoral Colloquium.</p>
+        <div class="project-footer">
+          <span class="project-result">✓ CSCW 2024 DC</span>
+          <div class="project-links"><a href="#" class="project-link">Paper →</a></div>
+        </div>
       </div>
-      <div class="research-card reveal">
-        <div class="research-num">04</div>
-        <h3>Graph Representation Learning</h3>
-        <p>Advancing graph neural network architectures for molecular property prediction, knowledge graph completion, and social network analysis with formal expressivity guarantees.</p>
-      </div>
-      <div class="research-card reveal reveal-delay-1">
-        <div class="research-num">05</div>
-        <h3>Bayesian Deep Learning</h3>
-        <p>Integrating probabilistic reasoning with deep learning to produce calibrated uncertainty estimates essential for high-stakes decision making in medicine and science.</p>
-      </div>
-      <div class="research-card reveal reveal-delay-2">
-        <div class="research-num">06</div>
-        <h3>Federated &amp; Privacy-Preserving ML</h3>
-        <p>Building learning systems that operate on distributed, sensitive data without compromising individual privacy — critical for healthcare and financial applications.</p>
+
+      <div class="project-card reveal" data-num="04">
+        <div class="project-tags"><span class="project-tag tag-social">Computational Social</span></div>
+        <div class="project-title">Mapping Misinformation Spread in Indian WhatsApp Networks</div>
+        <p class="project-desc">Scraped and analysed 180K messages from public WhatsApp groups during the 2024 general election. Built a graph-based propagation model to identify super-spreader nodes and the linguistic markers that predict virality of false claims.</p>
+        <div class="project-footer">
+          <span class="project-result">✓ Workshop paper — ACL SRW 2024</span>
+          <div class="project-links"><a href="#" class="project-link">GitHub →</a></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ PUBLICATIONS ══ -->
-<section id="publications">
+<!-- IDEAS -->
+<section id="ideas">
   <div class="container">
-    <div class="section-label reveal">Selected Works</div>
-    <h2 class="section-title reveal reveal-delay-1">Publications</h2>
-    <div class="section-rule reveal reveal-delay-2"></div>
-
-    <div class="pub-filters reveal">
-      <button class="filter-btn active">All</button>
-      <button class="filter-btn">Journal</button>
-      <button class="filter-btn">Conference</button>
-      <button class="filter-btn">Preprint</button>
-    </div>
-
-    <div class="pub-list">
-      <div class="pub-item reveal">
-        <div class="pub-year">2025</div>
-        <div class="pub-body">
-          <div class="pub-title">Causal Discovery Under Distribution Shift via Invariant Feature Alignment</div>
-          <div class="pub-authors">A. Mehta, S. Krishnamurthy, J. Wren, P. Liang</div>
-          <div class="pub-journal">Journal of Machine Learning Research, Vol. 26, pp. 1–48</div>
-        </div>
-        <span class="pub-badge">Journal</span>
+    <div class="section-eyebrow reveal" style="color:var(--accent-2)">Research Vision</div>
+    <h2 class="section-title reveal reveal-delay-1">Questions I Want<br>to <em>Pursue</em> in a PhD</h2>
+    <p class="section-sub reveal reveal-delay-2">These are the problems that keep me up at night — areas where I see genuine gaps, and where I believe rigorous research could make a meaningful difference.</p>
+    <div class="ideas-grid">
+      <div class="idea-card reveal">
+        <div class="idea-number">Idea 01</div>
+        <div class="idea-title">Culturally-Adaptive Language Models</div>
+        <p class="idea-desc">How can LLMs be fine-tuned or prompted to reason in ways that are culturally coherent — not just linguistically translated — across the Global South? Can we build evaluation frameworks that go beyond word-level accuracy?</p>
+        <div class="idea-why">Why now → 80% of the world's languages remain severely underrepresented in current models.</div>
       </div>
-
-      <div class="pub-item reveal">
-        <div class="pub-year">2024</div>
-        <div class="pub-body">
-          <div class="pub-title">FairGNN: Fairness-Aware Graph Neural Networks with Theoretical Guarantees</div>
-          <div class="pub-authors">R. Sharma, A. Mehta, T. Chen</div>
-          <div class="pub-journal">NeurIPS 2024 (Spotlight)</div>
-        </div>
-        <span class="pub-badge conf">Conference</span>
+      <div class="idea-card reveal reveal-delay-1">
+        <div class="idea-number">Idea 02</div>
+        <div class="idea-title">Human–AI Collaborative Reasoning</div>
+        <p class="idea-desc">Can we design AI interfaces that actively strengthen human reasoning rather than replace it? I want to study the cognitive science of AI-assisted decision making and build systems with "productive friction" that keep humans genuinely in the loop.</p>
+        <div class="idea-why">Why this matters → As AI automates cognition, understanding the effect on human agency is urgent.</div>
       </div>
-
-      <div class="pub-item reveal">
-        <div class="pub-year">2024</div>
-        <div class="pub-body">
-          <div class="pub-title">Bayesian Treatment Effect Estimation for Single-Cell Perturbation Data</div>
-          <div class="pub-authors">A. Mehta, M. Lotfollahi, F. J. Theis</div>
-          <div class="pub-journal">Nature Methods, 21, 1892–1903</div>
-        </div>
-        <span class="pub-badge">Journal</span>
+      <div class="idea-card reveal reveal-delay-2">
+        <div class="idea-number">Idea 03</div>
+        <div class="idea-title">Auditing Implicit Values in Generative AI</div>
+        <p class="idea-desc">RLHF instils values into models — but whose values? I want to develop interpretability-based auditing tools that surface the implicit moral and political assumptions baked into the RLHF process of large-scale models.</p>
+        <div class="idea-why">Why it's open → No systematic methodology exists for values auditing at scale.</div>
       </div>
-
-      <div class="pub-item reveal">
-        <div class="pub-year">2023</div>
-        <div class="pub-body">
-          <div class="pub-title">Efficient Federated Causal Inference with Differential Privacy</div>
-          <div class="pub-authors">A. Mehta, N. Agarwal, K. Dvijotham</div>
-          <div class="pub-journal">ICML 2023</div>
-        </div>
-        <span class="pub-badge conf">Conference</span>
-      </div>
-
-      <div class="pub-item reveal">
-        <div class="pub-year">2022</div>
-        <div class="pub-body">
-          <div class="pub-title">Structural Equation Models for Protein Interaction Networks</div>
-          <div class="pub-authors">A. Mehta, C. Szegedy, D. Sculley</div>
-          <div class="pub-journal">Bioinformatics, 38(4), 1012–1024</div>
-        </div>
-        <span class="pub-badge">Journal</span>
-      </div>
-
-      <div class="pub-item reveal">
-        <div class="pub-year">2021</div>
-        <div class="pub-body">
-          <div class="pub-title">Identifiability of Causal Effects with Multiple Causes and a Binary Outcome</div>
-          <div class="pub-authors">A. Mehta, D. Blei</div>
-          <div class="pub-journal">Annals of Statistics, 49(5), 2764–2791</div>
-        </div>
-        <span class="pub-badge">Journal</span>
-      </div>
-    </div>
-
-    <div style="margin-top: 3rem;" class="reveal">
-      <a href="https://scholar.google.com" class="btn-outline" target="_blank">View All on Google Scholar</a>
     </div>
   </div>
 </section>
 
-<!-- ══ AWARDS ══ -->
-<section id="awards">
+<!-- EXPERIENCE -->
+<section id="experience">
   <div class="container">
-    <div class="section-label reveal" style="color:var(--gold);">Recognition</div>
-    <h2 class="section-title reveal reveal-delay-1" style="color:var(--ivory);">Honours &amp; <em>Awards</em></h2>
-    <div class="section-rule reveal reveal-delay-2"></div>
-
-    <div class="awards-grid">
-      <div class="award-card reveal">
-        <div class="award-icon">✦</div>
-        <div class="award-name">Shanti Swarup Bhatnagar Prize</div>
-        <div class="award-org">Council of Scientific &amp; Industrial Research, India</div>
-        <div class="award-year">2024</div>
+    <div class="section-eyebrow reveal">Experience</div>
+    <h2 class="section-title reveal reveal-delay-1">Where I've <em>Worked</em></h2>
+    <p class="section-sub reveal reveal-delay-2">Research internships and positions that have shaped how I think.</p>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-period">May – August 2024</div>
+        <div class="timeline-role">Research Intern</div>
+        <div class="timeline-org">Microsoft Research India, Bangalore · NLP Group</div>
+        <ul class="timeline-body">
+          <li>Developed a curriculum learning pipeline for Indic language instruction fine-tuning of Phi-2, improving performance by 14% on IndicGLUE.</li>
+          <li>Collaborated with a team of 5 researchers on a paper submitted to EMNLP 2024.</li>
+          <li>Mentored by Dr. Kalika Bali (Principal Researcher, MSR India).</li>
+        </ul>
       </div>
-      <div class="award-card reveal reveal-delay-1">
-        <div class="award-icon">✦</div>
-        <div class="award-name">NeurIPS Outstanding Paper Award</div>
-        <div class="award-org">Conference on Neural Information Processing Systems</div>
-        <div class="award-year">2023</div>
+      <div class="timeline-item reveal">
+        <div class="timeline-period">December 2023 – February 2024</div>
+        <div class="timeline-role">Research Collaborator</div>
+        <div class="timeline-org">AI4Bharat Initiative, IIT Madras</div>
+        <ul class="timeline-body">
+          <li>Contributed to the IndicNLP suite — specifically data curation pipelines for Tamil and Malayalam corpora used in IndicBERT v2.</li>
+          <li>Wrote data quality validation scripts that reduced annotation noise by ~18%.</li>
+        </ul>
       </div>
-      <div class="award-card reveal">
-        <div class="award-icon">✦</div>
-        <div class="award-name">Wellcome Trust – DBT India Alliance Fellowship</div>
-        <div class="award-org">Wellcome Trust &amp; Department of Biotechnology</div>
-        <div class="award-year">2021</div>
-      </div>
-      <div class="award-card reveal reveal-delay-1">
-        <div class="award-icon">✦</div>
-        <div class="award-name">George M. Sprowls Award for Best Ph.D. Thesis</div>
-        <div class="award-org">MIT EECS Department</div>
-        <div class="award-year">2015</div>
+      <div class="timeline-item reveal">
+        <div class="timeline-period">May – July 2023</div>
+        <div class="timeline-role">Visiting Research Student</div>
+        <div class="timeline-org">Computational Linguistics Lab, IISc Bangalore</div>
+        <ul class="timeline-body">
+          <li>Studied prosodic patterns in Tamil speech for emotion detection under Prof. Srinivasa Chakravarthy.</li>
+          <li>Built an annotated dataset of 1,200 utterances for valence and arousal classification.</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ CONTACT ══ -->
+<!-- CONTACT -->
 <section id="contact">
   <div class="container">
-    <div class="contact-inner">
-      <div class="contact-info">
-        <div class="section-label reveal">Get In Touch</div>
-        <h2 class="section-title reveal reveal-delay-1">Let's <em>Connect</em></h2>
-        <div class="section-rule reveal reveal-delay-2"></div>
-        <p class="reveal">
-          I welcome enquiries from prospective Ph.D. students, postdoctoral researchers, and collaborators.
-          Please include a brief description of your research background and interests.
-        </p>
-
-        <a href="mailto:aryan.mehta@iitd.ac.in" class="contact-row reveal">
-          <div class="contact-row-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#c9a55a" stroke-width="1.5">
-              <path d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2z"/>
-              <polyline points="22,6 12,13 2,6"/>
-            </svg>
-          </div>
-          <div>
-            <div class="contact-row-label">Email</div>
-            <div class="contact-row-val">aryan.mehta@iitd.ac.in</div>
-          </div>
-        </a>
-
-        <a href="tel:+911126591000" class="contact-row reveal">
-          <div class="contact-row-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#c9a55a" stroke-width="1.5">
-              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.01 2.85 2 2 0 012 .67h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.48a16 16 0 006.29 6.29l1.17-1.17a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
-            </svg>
-          </div>
-          <div>
-            <div class="contact-row-label">Phone</div>
-            <div class="contact-row-val">+91 11 2659 1000</div>
-          </div>
-        </a>
-
-        <a href="#" class="contact-row reveal">
-          <div class="contact-row-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#c9a55a" stroke-width="1.5">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-              <circle cx="12" cy="10" r="3"/>
-            </svg>
-          </div>
-          <div>
-            <div class="contact-row-label">Office</div>
-            <div class="contact-row-val">Room SII-405, Bharti Building, IIT Delhi, Hauz Khas, New Delhi — 110016</div>
-          </div>
-        </a>
+    <div class="contact-grid">
+      <div class="contact-left">
+        <div class="section-eyebrow reveal">Get In Touch</div>
+        <h2 class="section-title reveal reveal-delay-1">Let's <em>Talk</em></h2>
+        <p class="reveal reveal-delay-2">I am actively looking for PhD positions starting Fall 2026. If you work on human-centred NLP, HCI, or responsible AI and think we might be a good fit, I'd genuinely love to hear from you.</p>
+        <div class="contact-links">
+          <a href="mailto:kavya.nair@gmail.com" class="contact-link-row reveal">
+            <div class="contact-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#e85d26" stroke-width="1.5"><path d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><div class="contact-link-label">Email</div><div class="contact-link-val">kavya.nair@gmail.com</div></div>
+          </a>
+          <a href="https://scholar.google.com" class="contact-link-row reveal" target="_blank">
+            <div class="contact-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#e85d26" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div>
+            <div><div class="contact-link-label">Google Scholar</div><div class="contact-link-val">View Publications</div></div>
+          </a>
+          <a href="https://github.com" class="contact-link-row reveal" target="_blank">
+            <div class="contact-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#e85d26" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg></div>
+            <div><div class="contact-link-label">GitHub</div><div class="contact-link-val">github.com/kavyanair</div></div>
+          </a>
+          <a href="https://linkedin.com" class="contact-link-row reveal" target="_blank">
+            <div class="contact-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#e85d26" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+            <div><div class="contact-link-label">LinkedIn</div><div class="contact-link-val">linkedin.com/in/kavyanair</div></div>
+          </a>
+        </div>
       </div>
-
       <div class="reveal reveal-delay-2">
-        <form class="contact-form" onsubmit="return false;">
-          <div class="form-field">
-            <label class="form-label" for="name">Full Name</label>
-            <input class="form-input" id="name" type="text" placeholder="Your name" />
+        <div class="sop-card">
+          <div class="sop-label">Statement of Purpose — Excerpt</div>
+          <p class="sop-text">"I want to pursue a PhD because I have seen, firsthand, how <strong>language technology built without the right questions</strong> can quietly exclude millions. I want to spend the next five years asking better questions — and building the rigorous methods to answer them."</p>
+          <a href="sop.pdf" class="sop-cta" download>Read Full Statement →</a>
+          <div class="target-unis">
+            <div class="target-uni"><span class="target-uni-name">MIT CSAIL</span><span class="target-uni-dept">NLP / HCI Group</span></div>
+            <div class="target-uni"><span class="target-uni-name">Carnegie Mellon University</span><span class="target-uni-dept">LTI · Computational Linguistics</span></div>
+            <div class="target-uni"><span class="target-uni-name">University of Washington</span><span class="target-uni-dept">HCDE · Allen School</span></div>
+            <div class="target-uni"><span class="target-uni-name">University of Edinburgh</span><span class="target-uni-dept">ILCC · Informatics</span></div>
           </div>
-          <div class="form-field">
-            <label class="form-label" for="email">Email Address</label>
-            <input class="form-input" id="email" type="email" placeholder="you@university.edu" />
-          </div>
-          <div class="form-field">
-            <label class="form-label" for="subject">Subject</label>
-            <input class="form-input" id="subject" type="text" placeholder="Research collaboration / PhD enquiry…" />
-          </div>
-          <div class="form-field">
-            <label class="form-label" for="message">Message</label>
-            <textarea class="form-textarea" id="message" placeholder="Briefly describe your research background and the nature of your enquiry…"></textarea>
-          </div>
-          <button class="form-submit" type="submit">Send Message →</button>
-        </form>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ FOOTER ══ -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-logo">Dr. Aryan Mehta</div>
-    <div class="footer-note">© 2025 Aryan Mehta · IIT Delhi · All rights reserved</div>
-    <div class="footer-socials">
-      <a href="https://scholar.google.com" class="footer-social-link" target="_blank">Google Scholar</a>
-      <a href="https://twitter.com" class="footer-social-link" target="_blank">Twitter / X</a>
-      <a href="https://linkedin.com" class="footer-social-link" target="_blank">LinkedIn</a>
-      <a href="https://github.com" class="footer-social-link" target="_blank">GitHub</a>
+    <div class="footer-brand">Kavya<span>.</span>Nair</div>
+    <div class="footer-note">© 2025 · B.Tech CSE, NIT Trichy · PhD Applicant Fall 2026</div>
+    <div class="footer-links">
+      <a href="https://scholar.google.com" target="_blank">Scholar</a>
+      <a href="https://github.com" target="_blank">GitHub</a>
+      <a href="https://twitter.com" target="_blank">Twitter</a>
+      <a href="resume.pdf" download>Resume</a>
     </div>
   </div>
 </footer>
 
 <script>
-  /* Scroll reveal */
-  const reveals = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.12 });
-  reveals.forEach(el => io.observe(el));
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  /* Publication filter buttons */
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    });
-  });
-
-  /* Nav active state on scroll */
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
   window.addEventListener('scroll', () => {
     let cur = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 100) cur = s.id;
-    });
-    navLinks.forEach(a => {
-      a.style.color = a.getAttribute('href') === '#' + cur
-        ? 'var(--gold-light)' : '';
-    });
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) cur = s.id; });
+    navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--accent)' : ''; });
   });
 </script>
 </body>
